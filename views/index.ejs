@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <h1>Welcome to your own compiler....</h1>
     <form action="/" method="POST" autocomplete="off">
@@ -15,21 +13,68 @@
         <textarea name="code" type="text" placeholder="Write your code here..." cols="100" rows="15"
             required><%= code %></textarea>
         <br>
-<%console.log(langArr)%>
+
         <label>Choose a language : </label><br>
+        <% if(langArr[0]===true){ %>
         <div>
-            <input type="radio" name="language" value="C" checked=<%=langArr[0] %> required/>
+            <input type="radio" name="language" id="C" value="C" checked required />
             <label>C</label>&nbsp;&nbsp;
-            <input type="radio" name="language" value="C++"  checked=<%=langArr[1] %> />
+            <input type="radio" name="language" id="C++" value="C++" />
             <label>C++</label>&nbsp;&nbsp;
-            <input type="radio" name="language" value="Java" checked=<%=langArr[2] %>/>
+            <input type="radio" name="language" id="Java" value="Java" />
             <label>Java</label>&nbsp;&nbsp;
-            <input type="radio" name="language" value="Python" checked=<%=langArr[3] %>  />
+            <input type="radio" name="language" id="Python" value="Python" />
             <label>Python</label>&nbsp;&nbsp;
-
         </div>
-        <br>
-
+        <%}%>
+        <%if(langArr[1]===true){ %>
+        <div>
+            <input type="radio" name="language" id="C" value="C" required />
+            <label>C</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="C++" value="C++" checked />
+            <label>C++</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Java" value="Java" />
+            <label>Java</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Python" value="Python" />
+            <label>Python</label>&nbsp;&nbsp;
+        </div>
+        <%}%>
+        <% if(langArr[2]===true){ %>
+        <div>
+            <input type="radio" name="language" id="C" value="C" required />
+            <label>C</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="C++" value="C++" />
+            <label>C++</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Java" value="Java" checked />
+            <label>Java</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Python" value="Python" />
+            <label>Python</label>&nbsp;&nbsp;
+        </div>
+        <%}%>
+        <%if(langArr[3]===true){ %>
+        <div>
+            <input type="radio" name="language" id="C" value="C" required />
+            <label>C</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="C++" value="C++" />
+            <label>C++</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Java" value="Java" />
+            <label>Java</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Python" value="Python" checked />
+            <label>Python</label>&nbsp;&nbsp;
+        </div>
+        <%}%>
+        <% if(!langArr.includes(true)){ %>
+        <div>
+            <input type="radio" name="language" id="C" value="C" required />
+            <label>C</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="C++" value="C++" />
+            <label>C++</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Java" value="Java" />
+            <label>Java</label>&nbsp;&nbsp;
+            <input type="radio" name="language" id="Python" value="Python" />
+            <label>Python</label>&nbsp;&nbsp;
+        </div>
+        <%}%>
         <h4>Console Inputs : </h4>
         <textarea name="inputs" type="text" placeholder="Write your inputs here..." cols="100"
             rows="5"><%= inputs %></textarea>
@@ -43,5 +88,4 @@
     </div>
     </div>
 </body>
-
 </html>
