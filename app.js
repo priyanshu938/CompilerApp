@@ -2,18 +2,29 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
-const alert= require("alert")
+const alert = require("alert");
 var axios = require("axios");
+app.set("view engine", "ejs");
 
 app.post("/", function (req, res) {
   var code = `` + req.body.code + ``;
   var lang = req.body.language;
   var inputs = `` + req.body.inputs + ``;
+  var langArr = [false, false, false, false];
   var language = "";
-  if (lang === "C") language = "c";
-  else if (lang === "C++") language = "cpp";
-  else if (lang === "Java") language = "java";
-  else language = "py";
+  if (lang === "C") {
+    language = "c";
+    langArr[0] = true;
+  } else if (lang === "C++") {
+    language = "cpp";
+    langArr[1] = true;
+  } else if (lang === "Java") {
+    language = "java";
+    langArr[2] = true;
+  } else if(lang==="Python") {
+    language = "py";
+    langArr[3] = true;
+  }
   language = `` + language + ``;
 
   var data = {
@@ -33,15 +44,27 @@ app.post("/", function (req, res) {
 
   axios(config)
     .then(function (response) {
-        alert(response.data.output)
+       
+      res.render("index", {
+        code: code,
+        language: lang,
+        inputs: inputs,
+        output: response.data.output,
+        langArr: langArr,
+      });
     })
     .catch(function (error) {
       console.log(error);
     });
-    res.redirect("/")
 });
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/index.html");
+  res.render("index", {
+    code: "",
+    language: "",
+    inputs: "",
+    output: "",
+    langArr: [false, false, false, false]
+  });
 });
 
 app.listen(3000, function () {
