@@ -7,9 +7,10 @@
     background-color: black;
     color: white;
 }
-@media (min-width: 320px) and (max-width: 768px) {
-textarea {
-    width:300px;
-}
+
+@media (min-width: 320px)and(max-width: 400px) {
+    textarea {
+        width: 300px;
+    }
 
 }
