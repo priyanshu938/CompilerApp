@@ -10,6 +10,11 @@
 
 @media (min-width: 320px) and (max-width: 500px) {
     textarea {
-        width: 320px;
+        width: 330px;
+    }
+}
+@media (min-width: 501px) and (max-width: 800px) {
+    textarea {
+        width: 550px;
     }
 }
