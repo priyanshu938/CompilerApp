@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 var axios = require("axios");
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.post("/", function (req, res) {
   var code = `` + req.body.code + ``;
