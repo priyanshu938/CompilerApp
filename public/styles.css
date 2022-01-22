@@ -1,4 +1,9 @@
-h1
-{
-    color:red;
+.code {
+    background-color: rgb(73, 70, 70);
+    color: white;
+}
+
+.output {
+    background-color: black;
+    color: white;
 }

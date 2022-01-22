@@ -6,79 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your own Compiler</title>
     <link rel="stylesheet" href="styles.css" />
-
 </head>
 <body>
     <h1>Welcome to your own compiler....</h1>
     <form action="/" method="POST" autocomplete="off">
-
-        <label>Choose a language : </label><br><br>
+        <label>Choose a language : </label>
         <% if(langArr[0]===true){ %>
-        <div>
-            <input type="radio" name="language" id="C" value="C" checked required />
-            <label>C</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="C++" value="C++" />
-            <label>C++</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Java" value="Java" />
-            <label>Java</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Python" value="Python" />
-            <label>Python</label>&nbsp;&nbsp;
-        </div>
+        <select name="language" id="">
+            <option id="C" value="C" selected>C</option>
+            <option id="C++" value="C++">C++</option>
+            <option id="Java" value="Java">Java</option>
+            <option id="Python" value="Python">Python</option>
+        </select>
         <%}%>
         <%if(langArr[1]===true){ %>
-        <div>
-            <input type="radio" name="language" id="C" value="C" required />
-            <label>C</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="C++" value="C++" checked />
-            <label>C++</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Java" value="Java" />
-            <label>Java</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Python" value="Python" />
-            <label>Python</label>&nbsp;&nbsp;
-        </div>
+        <select name="language" id="">
+            <option id="C" value="C">C</option>
+            <option id="C++" value="C++" selected>C++</option>
+            <option id="Java" value="Java">Java</option>
+            <option id="Python" value="Python">Python</option>
+        </select>
         <%}%>
         <% if(langArr[2]===true){ %>
-        <div>
-            <input type="radio" name="language" id="C" value="C" required />
-            <label>C</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="C++" value="C++" />
-            <label>C++</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Java" value="Java" checked />
-            <label>Java</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Python" value="Python" />
-            <label>Python</label>&nbsp;&nbsp;
-        </div>
+        <select name="language" id="">
+            <option id="C" value="C" selected>C</option>
+            <option id="C++" value="C++">C++</option>
+            <option id="Java" value="Java" selected>Java</option>
+            <option id="Python" value="Python">Python</option>
+        </select>
         <%}%>
         <%if(langArr[3]===true){ %>
-        <div>
-            <input type="radio" name="language" id="C" value="C" required />
-            <label>C</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="C++" value="C++" />
-            <label>C++</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Java" value="Java" />
-            <label>Java</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Python" value="Python" checked />
-            <label>Python</label>&nbsp;&nbsp;
-        </div>
+        <select name="language" id="">
+            <option id="C" value="C">C</option>
+            <option id="C++" value="C++">C++</option>
+            <option id="Java" value="Java">Java</option>
+            <option id="Python" value="Python" selected>Python</option>
+        </select>
         <%}%>
         <% if(!langArr.includes(true)){ %>
-        <div>
-            <input type="radio" name="language" id="C" value="C" required />
-            <label>C</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="C++" value="C++" />
-            <label>C++</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Java" value="Java" />
-            <label>Java</label>&nbsp;&nbsp;
-            <input type="radio" name="language" id="Python" value="Python" />
-            <label>Python</label>&nbsp;&nbsp;
-        </div>
+        <select name="language" id="">
+            <option id="C" value="C" selected>C</option>
+            <option id="C++" value="C++">C++</option>
+            <option id="Java" value="Java">Java</option>
+            <option id="Python" value="Python">Python</option>
+        </select>
         <%}%>
         <br><br>
         <textarea name="code" type="text" placeholder="Write your code here..." cols="100" rows="15"
-        spellcheck="false"   required><%= code %></textarea>
+        spellcheck="false"   required class="code"><%= code %></textarea>
         <br>
 
-        
+
         <h4>Console Inputs : </h4>
         <textarea name="inputs" type="text" placeholder="Write your inputs here..." cols="100"
             rows="5"><%= inputs %></textarea>
@@ -88,8 +66,10 @@
     </form>
     <h4>Output : </h4>
     <div>
-        <textarea name="output" type="text" cols="100" rows="5" spellcheck="false" readonly><%= output %></textarea>
+        <textarea name="output" type="text" cols="100" rows="5" spellcheck="false" class="output"
+            readonly>&gt <%= output %></textarea>
     </div>
     </div>
 </body>
+
 </html>
