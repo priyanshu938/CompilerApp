@@ -8,9 +8,9 @@
     color: white;
 }
 
-@media (min-width: 300px)and(max-width: 400px) {
+@media (min-width: 300px)and(max-width: 768px) {
     textarea {
-        width: 300px;
+        width: 200px;
     }
 
 }
