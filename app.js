@@ -7,10 +7,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.post("/", function (req, res) {
-  var code = `` + req.body.code + ``;
+  var code = req.body.code;
   var lang = req.body.language;
   var inputs = req.body.inputs;
-  // console.log(code, lang, inputs)
   var langArr = [false, false, false, false];
   var language = "";
   if (lang === "C") {
@@ -26,7 +25,6 @@ app.post("/", function (req, res) {
     language = "py";
     langArr[3] = true;
   }
-  language = `` + language + ``;
 
   var data = {
     code: code,
@@ -46,7 +44,6 @@ app.post("/", function (req, res) {
   axios(config)
     .then(function (response) {
       let output = response.data.output;
-      // console.log(output);
       res.render("index", {
         code: code,
         language: lang,
