@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 app.post("/", function (req, res) {
-  var code = req.body.code;
+  var code = `` + req.body.code + ``;
   var lang = req.body.language;
   var inputs = req.body.inputs;
   var langArr = [false, false, false, false];
@@ -25,7 +25,7 @@ app.post("/", function (req, res) {
     language = "py";
     langArr[3] = true;
   }
-
+  language = `` + language + ``;
   var data = {
     code: code,
     language: language,
